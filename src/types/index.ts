@@ -6,3 +6,9 @@ export interface Product {
   descripcion: string
   imagen: string
 }
+
+export interface Cart {
+  total: number
+  totalItems: number
+  items: Product[]
+}
