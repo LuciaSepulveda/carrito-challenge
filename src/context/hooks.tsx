@@ -9,6 +9,14 @@ export const useCart = (): PropsContext["state"]["cart"] => {
   return cart
 }
 
+export const useGemas = (): PropsContext["state"]["gemas"] => {
+  const {
+    state: { gemas },
+  } = React.useContext(Context)
+
+  return gemas
+}
+
 export const useAddToCart = (): PropsContext["actions"]["addToCart"] => {
   const {
     actions: { addToCart },
