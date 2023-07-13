@@ -46,7 +46,7 @@ const Provider = ({ children }: any) => {
       totalItems:
         prevState?.totalItems !== undefined ? prevState.totalItems - 1 : 0,
       items: prevState?.items
-        ? prevState.items.filter((prod) => prod.id === product.id)
+        ? prevState.items.filter((prod) => prod.id !== product.id)
         : [],
     }))
     setGemas(gemas + product.precio)
