@@ -9,6 +9,7 @@ export interface PropsContext {
   actions: {
     addToCart: (product: Product) => void
     removeFromCart: (product: Product) => void
+    restart: () => void
   }
 }
 
@@ -52,6 +53,11 @@ const Provider = ({ children }: any) => {
     setGemas(gemas + product.precio)
   }
 
+  const handleRestart = () => {
+    setCart(undefined)
+    setGemas(3)
+  }
+
   useEffect(() => {
     localStorage.setItem(
       "cart",
@@ -67,6 +73,7 @@ const Provider = ({ children }: any) => {
   const actions = {
     addToCart: handleAddToCart,
     removeFromCart: handleRemoveFromCart,
+    restart: handleRestart,
   }
 
   return (

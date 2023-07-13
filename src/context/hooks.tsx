@@ -33,3 +33,11 @@ export const useRemoveFromCart =
 
     return removeFromCart
   }
+
+export const useRestart = (): PropsContext["actions"]["restart"] => {
+  const {
+    actions: { restart },
+  } = React.useContext(Context)
+
+  return restart
+}
