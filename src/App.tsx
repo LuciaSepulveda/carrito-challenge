@@ -5,7 +5,7 @@ import { ListadoProductosComponent } from "./components/ListadoProductosComponen
 import { Product } from "./types"
 
 function App() {
-  const [showCarrito, setShowCarrito] = useState(false)
+  const [showCarrito, setShowCarrito] = useState<boolean>(false)
   const [products, setProducts] = useState<Product[]>([])
 
   useEffect(() => {
@@ -22,10 +22,14 @@ function App() {
       className="min-h-full bg-fixed"
       style={{ backgroundImage: "url(background.webp)" }}
     >
-      <HeaderComponent />
+      <HeaderComponent setShowCarrito={setShowCarrito} />
       <div className="flex justify-center min-h-full">
         <div className="max-w-lg w-full py-16">
-          {showCarrito ? <CarritoComponent /> : <ListadoProductosComponent products={products} />}
+          {showCarrito ? (
+            <CarritoComponent setShowCarrito={setShowCarrito} />
+          ) : (
+            <ListadoProductosComponent products={products} />
+          )}
         </div>
       </div>
     </div>
