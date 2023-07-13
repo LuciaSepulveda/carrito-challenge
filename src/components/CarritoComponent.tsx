@@ -32,7 +32,7 @@ export const CarritoComponent = ({ setShowCarrito }: Props) => {
   return (
     <div>
       <button
-        className="w-fit bg-purple-700 text-white py-1 px-2 rounded-xl text-sm"
+        className="w-fit bg-purple-700 text-white py-1 px-2 rounded-xl text-sm hover:scale-105 transition-all"
         onClick={() => setShowCarrito(false)}
       >
         Volver
@@ -50,7 +50,7 @@ export const CarritoComponent = ({ setShowCarrito }: Props) => {
             />
             <p>{product.nombre}</p>
             <button
-              className="text-stone-500 font-medium"
+              className="text-stone-500 font-medium hover:scale-105 transition-all"
               onClick={() => removeFromCart(product)}
             >
               x
@@ -58,9 +58,9 @@ export const CarritoComponent = ({ setShowCarrito }: Props) => {
           </div>
         ))}
       </div>
-      <p className="text-white">{ready ? "Compra realizada!" : ""}</p>
+      {ready && <p className="text-white">Compra realizada!</p>}
       <button
-        className="mt-6 w-full bg-purple-700 text-white py-1 px-2 rounded-xl text-sm disabled:bg-stone-500"
+        className="mt-6 w-full bg-purple-700 text-white py-1 px-2 rounded-xl text-sm disabled:bg-stone-500 hover:scale-105 transition-all disabled:hover:scale-100"
         disabled={cart?.items === undefined || cart?.items.length === 0}
         onClick={() => buyFunction(cart)}
       >

@@ -30,7 +30,7 @@ export const ListadoProductosComponent = ({ products }: Props) => {
             <p className="text-slate-500 text-sm">{product.descripcion}</p>
           </div>
           <button
-            className="w-full bg-purple-700 text-white py-1 rounded-xl disabled:bg-stone-500"
+            className="w-full bg-purple-700 text-white py-1 rounded-xl hover:scale-105 transition-all disabled:hover:scale-100 disabled:bg-stone-500"
             disabled={
               cart?.items !== undefined &&
               (cart?.items.find(
