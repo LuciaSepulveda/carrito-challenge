@@ -10,7 +10,7 @@ export const CarritoComponent = ({ setShowCarrito }: Props) => {
   const cart = useCart()
   const removeFromCart = useRemoveFromCart()
   const restart = useRestart()
-  const [ready, setReady] = useState<boolean>(false)
+  const [buyReady, setBuyReady] = useState<boolean>(false)
 
   const buyFunction = (cart: Cart | undefined) => {
     fetch("http://localhost:3001/compras", {
@@ -21,7 +21,7 @@ export const CarritoComponent = ({ setShowCarrito }: Props) => {
       headers: { "Content-type": "application/json; charset=UTF-8" },
     })
       .then(() => {
-        setReady(true)
+        setBuyReady(true)
         restart()
       })
       .catch((error) => {
@@ -58,7 +58,7 @@ export const CarritoComponent = ({ setShowCarrito }: Props) => {
           </div>
         ))}
       </div>
-      {ready && <p className="text-white">Compra realizada!</p>}
+      {buyReady && <p className="text-white">Compra realizada!</p>}
       <button
         className="mt-6 w-full bg-purple-700 text-white py-1 px-2 rounded-xl text-sm disabled:bg-stone-500 hover:scale-105 transition-all disabled:hover:scale-100"
         disabled={cart?.items === undefined || cart?.items.length === 0}
